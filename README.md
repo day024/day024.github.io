@@ -1,105 +1,193 @@
-<div align="center">
+# Quartz <!-- omit in toc -->
 
-  # Chirpy Jekyll Theme
+Quartz is a crystalline Jekyll theme for blog.
 
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+Check the [demo](http://vfvong.blog/jekyll-theme-quartz/).
 
-  [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy?color=brightgreen)](https://rubygems.org/gems/jekyll-theme-chirpy)
-  [![Build Status](https://github.com/cotes2020/jekyll-theme-chirpy/workflows/build/badge.svg?branch=master&event=push)](https://github.com/cotes2020/jekyll-theme-chirpy/actions?query=branch%3Amaster+event%3Apush)
-  [![Codacy Badge](https://app.codacy.com/project/badge/Grade/4e556876a3c54d5e8f2d2857c4f43894)](https://www.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cotes2020/jekyll-theme-chirpy&amp;utm_campaign=Badge_Grade)
-  [![GitHub license](https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy.svg)](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE)
-  [![996.icu](https://img.shields.io/badge/link-996.icu-%23FF4D5B.svg)](https://996.icu)
+![screenshot](screenshot.png)
 
-  [**Live Demo →**](https://cotes2020.github.io/chirpy-demo)
+## Highlight Features <!-- omit in toc -->
 
-  [![Devices Mockup](https://raw.githubusercontent.com/cotes2020/chirpy-images/main/commons/devices-mockup.png)](https://cotes2020.github.io/chirpy-demo)
+- Support the CSS resets [Normalize](https://github.com/necolas/normalize.css)
+- Support [Font Awesome](https://fontawesome.com/)
+- Support [MathJax](https://www.mathjax.org/)
+- Support [Disqus](https://disqus.com/)
+- Support [Google Analytics 4](https://analytics.google.com/analytics/web/)
+- Light and dark mode, via [`prefers-color-scheme`](https://web.dev/prefers-color-scheme/)
+- Archive pages implemented in pure [Liquid](https://shopify.github.io/liquid/)
 
-</div>
+## Table of Contents <!-- omit in toc -->
 
-## Features
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic Configuration](#basic-configuration)
+  - [Specifying the Page Language](#specifying-the-page-language)
+  - [Customizing the Head](#customizing-the-head)
+  - [Navigation](#navigation)
+  - [Social Links](#social-links)
+  - [Archive Pages](#archive-pages)
+  - [MathJax](#mathjax)
+  - [Disqus](#disqus)
+  - [Google Analytics 4](#google-analytics-4)
+  - [More Customization](#more-customization)
+- [Contributing](#contributing)
+- [Development](#development)
+- [License](#license)
 
-- Localized Layout
-- Dark/Light Theme Mode
-- Pinned Posts
-- Hierarchical Categories
-- Last Modified Date for Posts
-- Table of Contents
-- Auto-generated Related Posts
-- Syntax Highlighting
-- Mathematical Expressions
-- Mermaid Diagram & Flowchart
-- Disqus/Utterances/Giscus Comments
-- Search
-- Atom Feeds
-- Google Analytics
-- GA Pageviews Reporting
-- SEO & Performance Optimization
+## Installation
 
+Add this line to your Jekyll site's `Gemfile`:
 
-## Quick Start
-
-Before starting, please follow the instructions in the [Jekyll Docs](https://jekyllrb.com/docs/installation/) to complete the installation of `Ruby`, `RubyGems`, `Jekyll`, and `Bundler`. In addition, [Git](https://git-scm.com/) is also required to be installed.
-
-### Step 1. Creating a New Site
-
-Create a new repository from the [**Chirpy Starter**](https://github.com/cotes2020/chirpy-starter/generate) and name it `<GH_USERNAME>.github.io`, where `GH_USERNAME` represents your GitHub username.
-
-### Step 2. Installing Dependencies
-
-Before running for the first time, go to the root directory of your site, and install dependencies as follows:
-
-```console
-$ bundle
+```ruby
+gem "jekyll-theme-quartz"
 ```
 
-### Step 3. Running Local Server
+And add this line to your Jekyll site's `_config.yml`:
 
-Run the following command in the root directory of the site:
-
-```console
-$ bundle exec jekyll s
+```yaml
+theme: jekyll-theme-quartz
 ```
 
-Or run with Docker:
+And then execute:
 
-```console
-$ docker run -it --rm \
-    --volume="$PWD:/srv/jekyll" \
-    -p 4000:4000 jekyll/jekyll \
-    jekyll serve
+    $ bundle
+
+Or install it yourself as:
+
+    $ gem install jekyll-theme-quartz
+
+If your website is hosted on GitHub Pages, you can install this theme via [`jekyll-remote-theme`](https://github.com/benbalter/jekyll-remote-theme).
+
+Add the following to your `Gemfile`:
+
+```ruby
+gem "jekyll-remote-theme"
 ```
 
-After a while, navigate to the site at <http://localhost:4000>.
+And add this line to your Jekyll site's `_config.yml`:
 
-## Documentation
+```yml
+plugins:
+  - jekyll-remote-theme
+```
 
-For more details on usage, please refer to the tutorial on the [demo website](https://cotes2020.github.io/chirpy-demo/) / [wiki](https://github.com/cotes2020/jekyll-theme-chirpy/wiki). Note that the tutorial is based on the [latest tag](https://github.com/cotes2020/jekyll-theme-chirpy/tags), and the features of the default branch are usually ahead of the documentation.
+Add the following to your site's `_config.yml`:
+
+```yml
+remote_theme: vfvong/jekyll-theme-quartz
+```
+
+## Usage
+
+### Basic Configuration
+
+You can refer to the [`_config.yml`](https://github.com/vfvong/jekyll-theme-quartz/blob/gh-pages/_config.yml) of the demo to set some basic configuration of your site.
+
+### Specifying the Page Language
+
+You can specify the language on each page by setting the `lang` property. If the property is not set, the `site.lang` would be referred. If the `site.lang` is not set, the default value `en` would be applied.
+
+### Customizing the Head
+
+If you want to put more data into the `<head>`, you don't need to copy the whole `_includes/head.html` file from this repo and overwrite it in your repo. You just need to create a `_includes/custom-head.html` file in your repo, and put some data into there. These data will be automatically imported into the `<head>`.
+
+### Navigation
+
+The navigation in Quartz is very easy to configure, just specify the titles and URLs in the [`_data/navigation.yml`](https://github.com/vfvong/jekyll-theme-quartz/blob/gh-pages/_data/navigation.yml) file, for example,
+
+```yml
+- title: Home
+  url: /
+- title: About
+  url: /about.html
+- title: Archive
+  url: /archive.html
+```
+
+### Social Links
+
+The social links in Quartz is also very easy to connfigure. You don't need to import any large SVG file to render the icons because Quartz supports the [Font Awesome](https://fontawesome.com/). Specify the titles, URLs, and icons in the [`_data/social.yml`](https://github.com/vfvong/jekyll-theme-quartz/blob/gh-pages/_data/social.yml) file, for example,
+
+```yml
+- title: Email
+  url: mailto:vfvong@gmail.com
+  icon: fas fa-envelope
+- title: Twitter
+  url: https://twitter.com/vfvong
+  icon: fab fa-twitter
+- title: GitHub
+  url: https://github.com/vfvong
+  icon: fab fa-github
+```
+
+### Archive Pages
+
+Quartz provides a template `archive` to archive posts by years, categories, or tags.
+
+If you want to show an archive page of years, just create a file and put these front matter in it:
+
+```yml
+---
+layout: archive
+type: years
+title: Archive by Years
+---
+```
+
+Similarly, if you want to show an archive page of categories, just create a file and put these front matter in it:
+
+```yml
+---
+layout: archive
+type: categories
+title: Archive by Categories
+---
+```
+
+Besides, if you want the categories and tags displayed in the post to link to the archive pages, you need to configure the paths to the category and tag archive pages in the `_config.yml` file, for example:
+
+```yml
+categories_path: /categories/
+tags_path: /tags/
+```
+
+### MathJax
+
+Quartz relies on the [MathJax](https://www.mathjax.org/) to render math. The MathJax is disabled by default. You need to set `math: true` on the page where you want to enable the MathJax.
+
+### Disqus
+
+To enable [Disqus](https://disqus.com/), just set the [Disqus shortname](https://help.disqus.com/en/articles/1717111-what-s-a-shortname) in the `_config.yml`, for example,
+
+```yml
+disqus: <your disqus shortname>
+```
+
+### Google Analytics 4
+
+Quartz support the [Google Analytics 4](https://support.google.com/analytics/answer/10089681). To enable it, just set the Measurement ID in the `_config.yml`, for example,
+
+```yml
+google_analytics: G-XXXXXXXXXX
+```
+
+### More Customization
+
+You can easily modify some styles of this theme, such as colors and fonts. You don't have to copy a lot of CSS into your repository, just copy [`_sass/quartz/_variables.scss`](_sass/quartz/_variables.scss) and change the variable value.
 
 ## Contributing
 
-Welcome to report bugs, improve code quality or submit a new feature. For more information, see [contributing guidelines](.github/CONTRIBUTING.md).
+Bug reports and pull requests are welcome on GitHub at [https://github.com/vfvong/jekyll-theme-quartz](https://github.com/vfvong/jekyll-theme-quartz). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-## Credits
+## Development
 
-This theme is mainly built with [Jekyll](https://jekyllrb.com/) ecosystem, [Bootstrap](https://getbootstrap.com/), [Font Awesome](https://fontawesome.com/) and some other wonderful tools (their copyright information can be found in the relevant files). The avatar and favicon design come from [Clipart Max](https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/).
+To set up your environment to develop this theme, run `bundle install`.
 
-:tada: Thanks to all the volunteers who contributed to this project, their GitHub IDs are on [this list](https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors). Also, I won't forget those guys who submitted the issues or unmerged PR because they reported bugs, shared ideas, or inspired me to write more readable documentation.
+Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
 
-Last but not least, thank [JetBrains][jb] for providing the OSS development license.
-
-## Sponsoring
-
-If you like this theme or find it helpful, please consider sponsoring me, because it will encourage and help me better maintain the project, I will be very grateful!
-
-[![Ko-fi](https://img.shields.io/badge/-Buy%20Me%20a%20Coffee-ff5f5f?logo=ko-fi&logoColor=white)](https://ko-fi.com/coteschung)
-[![Wechat Pay](https://img.shields.io/badge/-Tip%20Me%20on%20WeChat-brightgreen?logo=wechat&logoColor=white)][cn-donation]
-[![Alipay](https://img.shields.io/badge/-Tip%20Me%20on%20Alipay-blue?logo=alipay&logoColor=white)][cn-donation]
+When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
+To add a custom directory to your theme-gem, please edit the regexp in `jekyll-theme-quartz.gemspec` accordingly.
 
 ## License
 
-This work is published under [MIT](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE) License.
-
-<!-- ReadMe links -->
-
-[jb]: https://www.jetbrains.com/?from=jekyll-theme-chirpy
-[cn-donation]: https://cotes.gitee.io/alipay-wechat-donation/
+The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).

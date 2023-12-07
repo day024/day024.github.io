@@ -1,36 +1,42 @@
-<!-- The Footer -->
-
-<footer class="row pl-3 pr-3">
-  <div class="col-12 d-flex justify-content-between align-items-center text-muted pl-0 pr-0">
-    <div class="footer-left">
-      <p class="mb-0">
-        © {{ 'now' | date: "%Y" }}
-        <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
-        {% if site.data.locales[lang].copyright.brief %}
-        <span data-toggle="tooltip" data-placement="top"
-          title="{{ site.data.locales[lang].copyright.verbose }}">{{ site.data.locales[lang].copyright.brief }}</span>
-        {% endif %}
+<footer class="footer outer">
+  <div class="inner">
+    <div class="columns">
+      {% if site.description %}
+      <p class="column">
+        {{ site.description }}
       </p>
+      {% endif %}
+
+      {% if site.data.footnav %}
+        {% for column in site.data.footnav limit:3 %}
+          <nav class="column footnav">
+            {% for item in column %}
+              <a class="footnav-item" href="{{ item.url | relative_url }}">
+                {{ item.title }}
+              </a>
+            {% endfor %}
+          </nav>
+        {% endfor %}
+      {% endif %}
     </div>
 
-    <div class="footer-right">
-      <p class="mb-0">
-        {% capture _platform %}
-          <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a>
-        {% endcapture %}
+    <div class="footer-bottom">
+      {% if site.data.social %}
+        <div class="social">
+          {% for social in site.data.social %}
+            <a href="{{ social.url }}" target="_blank">
+              <i class="{{ social.icon | default: 'fas fa-link' }}" title="{{ social.title }}"></i>
+            </a>
+          {% endfor %}
+        </div>
+      {% endif %}
 
-        {% capture _theme %}
-          <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a>
-        {% endcapture %}
-
-        {{ site.data.locales[lang].meta
-          | default: 'Powered by :PLATFORM with :THEME theme.'
-          | replace: ':PLATFORM', _platform | replace: ':THEME', _theme
-        }}
-
+      <p class="copyright">
+        &copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>
+        {%- if site.author -%}
+          &nbsp;<a href="{{ site.author.url }}" target="_blank">{{ site.author.name }}</a>
+        {%- endif -%}. All rights reserved. Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> & <a href="https://github.com/vfvong/jekyll-theme-quartz" target="_blank">Quartz</a>
       </p>
     </div>
-
   </div>
-
 </footer>
