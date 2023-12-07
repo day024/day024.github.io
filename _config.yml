@@ -30,7 +30,6 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-theme: jekyll-theme-quartz
 plugins:
   - jekyll-remote-theme
 remote_theme: vfvong/jekyll-theme-quartz
