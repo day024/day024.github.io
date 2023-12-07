@@ -8,6 +8,9 @@ We planned a lost and found project
 It was carried out using open source.
 The following open source was [referenced][reference].
 
+See the page below for details
+https://day024.github.io/FALLEN-web/
+
 Check out the [project notion][project notion] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [our GitHub repo][project-git]. If you have questions, you can ask them on [project-blog][project-blog].
 
 [project notion]: https://fallen-project.notion.site/23-2-OpenSourceSW-e13c40ae74b240abac4e958c6beb2c01?pvs=4
